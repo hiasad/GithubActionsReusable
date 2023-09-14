@@ -4,11 +4,15 @@ run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 
 on:
   workflow_call:
+     inputs:
+        input1:
+          required: true
+          type: string
 
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
       - name: Print the input name to STDOUT
-        run: echo The username is ${{ inputs.username }}
+        run: echo The username is ${{ inputs.username }}. Input passed is ${{ inputs.input1 }}
         shell: bash
